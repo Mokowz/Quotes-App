@@ -1,14 +1,11 @@
 <template>
-  <div class="bg-blue-400 h-screen">
+  <div class="bg-blue-400 min-h-screen">
     <!-- FLex Container -->
     <div class="flex mx-auto container space-y-8 flex-col py-10 px-6 md:px-0">
       <!-- Nav -->
       <Navbar />
 
-      <!-- Quote Container -->
-      <h1 class="text-3xl font-medium" v-for="quote in quotes" 
-        :key="quote.quote">{{ quote.quote }}
-      </h1>
+      <QuoteContainer :quotes="quotes" :newQuote="fetchRandomQuote" />
 
       <!-- Categories -->
     </div>
@@ -18,10 +15,11 @@
 <script>
 import axios from 'axios';
 import Navbar from '@/components/Navbar.vue';
+import QuoteContainer from '@/components/QuoteContainer.vue';
 
 export default {
   name: 'HomeView',
-  components: { Navbar },
+  components: { Navbar, QuoteContainer },
   data() {
     return {
       quotes: null,
