@@ -1,25 +1,33 @@
 <template>
   <div class="bg-blue-400 h-screen">
     <!-- FLex Container -->
-    <div class="flex mx-auto container flex-col py-10 px-6 md:px-0">
+    <div class="flex mx-auto container space-y-8 flex-col py-10 px-6 md:px-0">
       <!-- Nav -->
+      <Navbar />
 
       <!-- Quote Container -->
-      <h1 class="text-3xl font-medium" v-for="quote in quotes" :key="quote.quote">{{ quote.quote }}</h1>
+      <h1 class="text-3xl font-medium" v-for="quote in quotes" 
+        :key="quote.quote">{{ quote.quote }}
+      </h1>
+
+      <!-- Categories -->
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'HomeView',
-  components: { },
+  components: { Navbar },
   data() {
     return {
       quotes: null,
-      category: null
+      category: null,
+      author: null,
+      word: null,
     }
   },
   beforeMount() {
