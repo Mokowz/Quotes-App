@@ -8,10 +8,14 @@
         </div>
 
         <!-- Search Btn -->
-        <div>
-            <input type="search" placeholder="Search quote" 
-             class="px-2 py-1 w-64 rounded-md focus:border-transparent focus:outline-none md:w-72">
-        </div>
+        <form @submit.prevent="handleSearch">
+            <div>
+                <input type="search" placeholder="Search quote" 
+                v-model="search"
+                class="px-2 py-1 w-64 rounded-md focus:border-transparent focus:outline-none md:w-72">
+            </div>
+        </form>
+        
 
         <!-- Dark Mode -->
         <div class="flex items-center justify-center p-0 w-12 h-12 bg-white rounded-full">
@@ -30,6 +34,13 @@ export default {
         return {
             user,
             darkMode,
+            search: null,
+        }
+    },
+
+    methods: {
+        handleSearch() {
+            console.log(this.search)
         }
     }
 }
