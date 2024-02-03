@@ -14,17 +14,17 @@
         <div class="flex flex-col space-y-4 w-full justify-between items-center md:flex-row md:space-y-0">
             <!-- Btns -->
             <div class="flex space-x-2">
-                <div class="flex rounded-full w-12 h-12 items-center border border-blue-500 justify-center">
-                    <img :src="voice" alt="" class="w-5 h-5 md:w-8 md:h-8">
+                <div class="flex cursor-pointer rounded-full w-10 h-10 items-center border border-blue-500 justify-center">
+                    <img :src="voice" alt="" class="w-5 h-5 md:w-6 md:h-6">
                 </div>
 
-                <div class="flex rounded-full w-12 h-12 items-center border border-blue-500 justify-center">
-                    <img :src="copy" alt="" class="w-5 h-5 md:w-8 md:h-8">
+                <div class="flex cursor-pointer rounded-full w-10 h-10 items-center border border-blue-500 justify-center">
+                    <img :src="copy" alt="" class="w-5 h-5 md:w-6 md:h-6">
                 </div>
 
-                <div class="flex rounded-full w-12 h-12 items-center border border-blue-500 justify-center">
-                    <img :src="share" alt="" class="w-5 h-5 md:w-8 md:h-8">
-                </div>
+                <btn @click="shareQuote" class="flex cursor-pointer rounded-full w-10 h-10 items-center border border-blue-500 justify-center">
+                    <img :src="share" alt="" class="w-5 h-5 md:w-6 md:h-6">
+                </btn>
             </div>
 
             <!-- New Quote Btn -->
@@ -60,6 +60,14 @@ export default {
             share,
             voice,
         }
+    },
+    methods: {
+        shareQuote() {
+            navigator.share({
+                text: "Hey There",
+                url: "https://github.com/Mokowz?tab=overview&from=2023-12-01&to=2023-12-31"
+            })
+        },
     }
 
 }
